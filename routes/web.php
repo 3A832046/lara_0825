@@ -80,9 +80,12 @@ Route::get('/', function () {
         //取得Collection 多筆貼文的集合
         /*$allPosts=Post::all();
         dd($allPosts);*/
-        $featuredPosts=Post::where('is_feature',1)->get();
-        dd($featuredPosts);
+        /*$featuredPosts=Post::where('is_feature',1)->get();
+        dd($featuredPosts);*/
 
+        //取得Model 單一筆貼文
+        $fourthPost=Post::find(4);
+        dd($fourthPost);
 
 });
 
