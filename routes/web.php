@@ -84,8 +84,11 @@ Route::get('/', function () {
         dd($featuredPosts);*/
 
         //取得Model 單一筆貼文
-        $fourthPost=Post::find(4);
-        dd($fourthPost);
+        /*$fourthPost=Post::find(4);
+        dd($fourthPost);*/
+
+        $lastPost=Post::orderBy('id','DESC')->first();
+        dd($lastPost);
 
 });
 
