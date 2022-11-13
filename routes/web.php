@@ -77,9 +77,13 @@ Route::get('/', function () {
         //Post::destroy(3,5,7);   //刪除多筆資料
 
     //-----了解Model和Collection差異-----
-        //取得Collection
-        $allPosts=Post::all();
-        dd($allPosts);
+        //取得Collection 多筆貼文的集合
+        /*$allPosts=Post::all();
+        dd($allPosts);*/
+        $featuredPosts=Post::where('is_feature',1)->get();
+        dd($featuredPosts);
+
+
 });
 
 Route::get('posts',[PostController::class,'index'])->name('posts.index');
