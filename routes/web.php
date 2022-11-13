@@ -3,6 +3,7 @@
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
+use App\Models\Comment;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,7 +92,7 @@ Route::get('/', function () {
 
     //-----建立Post與Comment間的關係-----
         //Post透過comments()擷取所有評論($comments)
-        $post = Post::find(6);
+        /*$post = Post::find(6);
         echo '標題:'.$post->title.'<br>';
         echo '內容:'.$post->content.'<br>';
         echo '--------------------------'.'<br>';
@@ -99,8 +100,16 @@ Route::get('/', function () {
         foreach($comments as $comment){
             echo '留言:'.$comment->content.'<br>';
             echo '--------------------------'.'<br>';
-        }
+        }*/
 
+        //Comment透過post()擷取所屬貼文($post)
+        $comment=Comment::find(2);
+        echo $comment->content.'<br>';
+        echo '*********************'.'<br>';
+        $post=$comment->post()->first();
+        echo $post->id.'<br>';
+        echo $post->title.'<br>';
+        echo $post->content.'<br>';
 });
 
 Route::get('posts',[PostController::class,'index'])->name('posts.index');
