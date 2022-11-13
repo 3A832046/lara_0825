@@ -55,13 +55,17 @@ Route::get('/', function () {
 
     //-----更新資料-----
         //-使用updete方法-
-        $post=Post::find(1);
+        /*$post=Post::find(1);
         $post->update([
             'title'=>'updated title',
             'content'=>'updated content',
-        ]);
+        ]);*/
 
-
+        //-使用save方法-
+            $post=Post::find(1);
+            $post->title='saved title';
+            $post->content='saved content';
+            $post->save();
 });
 
 Route::get('posts',[PostController::class,'index'])->name('posts.index');
