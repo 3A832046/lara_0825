@@ -74,10 +74,12 @@ Route::get('/', function () {
 
         //使用destroy方法
         //Post::destroy(2);
-        Post::destroy(3,5,7);   //刪除多筆資料
+        //Post::destroy(3,5,7);   //刪除多筆資料
 
-
-
+    //-----了解Model和Collection差異-----
+        //取得Collection
+        $allPosts=Post::all();
+        dd($allPosts);
 });
 
 Route::get('posts',[PostController::class,'index'])->name('posts.index');
